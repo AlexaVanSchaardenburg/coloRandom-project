@@ -1,7 +1,7 @@
 # coloRandom-project
 
-PR Template
-## Type of change
+## PR Template
+### Type of change
 Please delete options that are not relevant. Add details to any checked options (e.g. function name, line number...)
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
@@ -9,7 +9,7 @@ Please delete options that are not relevant. Add details to any checked options 
 - [ ] This change requires a documentation update
 - [ ] Others
 
-# Checklist:
+### Checklist:
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my code
 - [ ] I have commented my code, particularly in hard-to-understand areas
