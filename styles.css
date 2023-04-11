@@ -79,3 +79,9 @@ h1 {
     border-width: 3px;
     margin: 10px
 }
+
+button {
+    border - radius: 0 % 30 %;
+    color: white;
+    background: black;
+}
