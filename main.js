@@ -9,8 +9,16 @@ var hexColors = document.querySelectorAll('.box p');
 //Event Listeners
 generateRandomButton.addEventListener('click', displayPalette);
 window.addEventListener('load', displayPalette);
+boxes.forEach(node => node.addEventListener('click', toggleLock));
 
 //Functions
+function toggleLock(event) {
+    if (event.target.nodeName === 'IMG') {
+      event.currentTarget.firstElementChild.classList.toggle('hidden');
+      event.currentTarget.lastElementChild.classList.toggle('hidden');
+    }
+}
+
 function generateRandomHex(){
     var hexCharacters = [];
     for (var i=0; hexCharacters.length<6; i++){
@@ -43,7 +51,7 @@ function displayPalette() {
  * When the page is initially loaded, 
  * all colors should have an unlocked icon in the bottom right corner
  *  - CSS: make box a flex container, flex-end * 2; change p
- *  - HTML: make img unlocked and locked the children of box, with id name
+ *  - HTML: make img unlocked and locked the children of box, with differnt class name
  * 
  * When a user clicks on the unlocked icon, a locked icon should appear; 
  * The locked/unlocked icons should toggle back and forth as the user clicks them
@@ -56,7 +64,7 @@ function displayPalette() {
  *  - add if/else statement there
  *
  *  - if/else statement, 
-    *  - if unlocked (if event.target.id === "unlocked"??)
+    *  - if unlocked (if event.target.classList.contains("unlocked"))
     *   - provide ids of the unlocked items
     *   - call generateRandomPalette
     *   
