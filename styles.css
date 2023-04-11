@@ -10,24 +10,17 @@ body {
     width: 100%;
 }
 
-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-header {
+header, section {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 
 h1 {
     font-family: Poppins;
     font-size: 90px;
     text-transform: uppercase;
+    padding: 50px
 }
 
 .box:nth-child(1) {
@@ -86,5 +79,17 @@ button {
     border: radius: 0 % 30 %;
     color: white;
     background: black;
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 300;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+    width: 275px
+}
 
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 200px
 }
