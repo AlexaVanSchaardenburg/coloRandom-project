@@ -81,7 +81,10 @@ h1 {
 }
 
 button {
-    border - radius: 0 % 30 %;
+    
+    text-align: center;
+    border: radius: 0 % 30 %;
     color: white;
     background: black;
+
 }
