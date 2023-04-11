@@ -39,3 +39,31 @@ function displayPalette() {
     }
 }
 
+/**
+ * When the page is initially loaded, 
+ * all colors should have an unlocked icon in the bottom right corner
+ *  - CSS: make box a flex container, flex-end * 2; change p
+ *  - HTML: make img unlocked and locked the children of box, with id name
+ * 
+ * When a user clicks on the unlocked icon, a locked icon should appear; 
+ * The locked/unlocked icons should toggle back and forth as the user clicks them
+ *  - HTML + CSS: add class hidden
+ *  - add event listener, classList.toggle("hidden") 
+ * 
+ * When the New Palette button is clicked, 
+ * only the unlocked colors should change; Locked colors should remain
+ * - modify genearteRandom
+ *  - add if/else statement there
+ *
+ *  - if/else statement, 
+    *  - if unlocked (if event.target.id === "unlocked"??)
+    *   - provide ids of the unlocked items
+    *   - call generateRandomPalette
+    *   
+ * 
+ * When the palette is updated, your Data Model should be updated too 
+    *  -  modify function displayPalette
+    *   - only reassign values to the ones with unlocked item
+ * 
+ * */
+
