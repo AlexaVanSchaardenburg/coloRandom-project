@@ -10,31 +10,23 @@ body {
     width: 100%;
 }
 
-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-header {
+header, section {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 
 h1 {
     font-family: Poppins;
     font-size: 90px;
     text-transform: uppercase;
+    padding: 50px
 }
 
 .box:nth-child(1) {
     text-align: center;
     height: 150px;
     width: 150px;
-    background-color: #EA9999;
     border-style: solid;
     border-width: 3px;
     margin: 10px
@@ -44,7 +36,6 @@ h1 {
     text-align: center;
     height: 150px;
     width: 150px;
-    background-color: #FACB9C;
     border-style: solid;
     border-width: 3px;
     margin: 10px
@@ -54,7 +45,6 @@ h1 {
     text-align: center;
     height: 150px;
     width: 150px;
-    background-color: #FFE59A;
     border-style: solid;
     border-width: 3px;
     margin: 10px
@@ -64,7 +54,6 @@ h1 {
     text-align: center;
     height: 150px;
     width: 150px;
-    background-color: #B6D7A8;
     border-style: solid;
     border-width: 3px;
     margin: 10px
@@ -74,8 +63,26 @@ h1 {
     text-align: center;
     height: 150px;
     width: 150px;
-    background-color: #A4C4CA;
     border-style: solid;
     border-width: 3px;
     margin: 10px
+}
+
+button {
+    text-align: center;
+    color: white;
+    background: black;
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 300;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+    width: 275px
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 200px
 }
