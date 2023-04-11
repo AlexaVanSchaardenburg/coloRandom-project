@@ -15,7 +15,7 @@ var hexCode4 = document.querySelector('#color-4');
 var hexCode5 = document.querySelector('#color-5');
 
 //Event Listeners
-generateRandomButton.addEventListener('click', generateRandomPalette);
+generateRandomButton.addEventListener('click', displayPalette);
 
 //Generating random hex codes 
 function generateRandomHex(){
@@ -36,17 +36,33 @@ function generateRandomPalette() {
         colorPalette.push(generateRandomHex())
     }
     colorPalettes.push(colorPalette)
-    displayPalette()
     return colorPalette
 };
 
 //Change boxes to generated colors & change text below boxes to generated hex
 function displayPalette() {
+    var currentPalette = generateRandomPalette()
     //display array in html
     //display colors in boxes
         //Declare 5 vars that are the boxes 
         //use .style.background to set color to hex code
     //display hex code numbers under boxes
         //update the innertext of p elments by theuir id num (use query selectro to make them vars)
+    //color 1
+    hexCode1.innerText = `${currentPalette[0]}`
+    box1.style.backgroundColor = currentPalette[0]
+    console.log(currentPalette[0])
+    //color 2
+    hexCode2.innerText = `${currentPalette[1]}`
+    box2.style.color = currentPalette[1]
+    //color 3
+    hexCode3.innerText = `${currentPalette[2]}`
+    box3.style.color = currentPalette[2]
+    //color 4
+    hexCode4.innerText = `${currentPalette[3]}`
+    box4.style.background = currentPalette[3]
+    //color 5
+    hexCode5.innerText = `${currentPalette[4]}`
+    box5.style.color = currentPalette[4]
 };
 
