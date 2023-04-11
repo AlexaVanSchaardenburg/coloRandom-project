@@ -6,13 +6,12 @@
 
 //Psuedo Code:
 //Data model = colors and color palettes --- colorHexs = array colorPalettes = array of arrays
-var colorHexs = [];
 var colorPalettes = [];
 var generateRandomButton = document.querySelector('#generate-random-button')
 
     //Make Button
     //HTML --> 
-    < button id="generate-random-button"> New Palette</button>
+    <button id="generate-random-button"> New Palette</button>
         //CSS --> use border-radius: 0% 30% - play with 30% to change it until it fits
         button {
     border - radius: 0 % 30 %;
@@ -57,23 +56,20 @@ function generateRandomHex(){
     hexCode = `#${hexCharacters.join('')}`
     return hexCode
 };
-  
-
 
 //Generate random color palette function
 function generateRandomPalette() {
     //create array that is color palette
     var colorPalette = []
     //invoke generateRandomHex function 5x and push into colorPalette array (look for DRYer way to do this)
-    colorPalette.push(generateRandomHex())
-    colorPalette.push(generateRandomHex())
-    colorPalette.push(generateRandomHex())
-    colorPalette.push(generateRandomHex())
-    colorPalette.push(generateRandomHex())
+    for (var i=0; colorPalette.length<5; i++){
+        colorPalette.push(generateRandomHex())
+    }
     //push that new array into the colorPalettes array to save palette in data model
     colorPalettes.push(colorPalette)
     //invoke displayPalette
     displayPalette()
+    return colorPalette
 };
 
 //Change boxes to generated colors & change text below boxes to generated hex
