@@ -3,7 +3,7 @@ var colorPalettes = [];
 
 //Variables
 var generateRandomButton = document.querySelector('#generate-random-button');
-var box1 = document.querySelector('#colored-box-1');
+var box1 = document.querySelector('.box');
 var box2 = document.querySelector('#colored-box-2');
 var box3 = document.querySelector('#colored-box-3');
 var box4 = document.querySelector('#colored-box-4');
@@ -43,6 +43,7 @@ function generateRandomPalette() {
 //Change boxes to generated colors & change text below boxes to generated hex
 function displayPalette() {
     var currentPalette = generateRandomPalette()
+    
     //display array in html
     //display colors in boxes
         //Declare 5 vars that are the boxes 
@@ -50,9 +51,9 @@ function displayPalette() {
     //display hex code numbers under boxes
         //update the innertext of p elments by theuir id num (use query selectro to make them vars)
     //color 1
-    console.log(box1)
     hexCode1.innerText = `${currentPalette[0]}`
-    box1.style.background = currentPalette[0]
+    console.log(currentPalette[0])
+    box1.style.backgroundColor = currentPalette[0]
     //color 2
     hexCode2.innerText = `${currentPalette[1]}`
     //color 3
