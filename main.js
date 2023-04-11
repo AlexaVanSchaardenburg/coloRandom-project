@@ -39,3 +39,74 @@ function displayPalette() {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// iteration 4: pseudocode
+
+
+// step one: 
+    // add the x - image to the html 
+    //
+// step two: 
+    // when the x is clicked, the resulting palettes are removed from the saved palettes section
+    // use a for loop to iterate through the displayed palettes in the saved palletes and if one matches, it is then spliced out of the DM permanately
+    // utlize event propagation to put and EL the event.target on the parent (saved covers parent node) + target source element where event occurs (x-image) 
+
+
+
