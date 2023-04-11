@@ -20,6 +20,7 @@ h1 {
     font-family: Poppins;
     font-size: 90px;
     text-transform: uppercase;
+    padding: 50px
 }
 
 .box:nth-child(1) {
@@ -84,4 +85,11 @@ button {
     border-top-right-radius: 45px;
     border-bottom-left-radius: 45px;
     width: 275px
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 200px
 }
