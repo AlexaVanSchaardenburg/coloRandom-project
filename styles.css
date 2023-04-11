@@ -30,7 +30,7 @@ h1 {
     text-transform: uppercase;
 }
 
-.box-1 {
+.box:nth-child(1) {
     text-align: center;
     height: 150px;
     width: 150px;
@@ -40,7 +40,7 @@ h1 {
     margin: 10px
 }
 
-.box-2 {
+.box:nth-child(2) {
     text-align: center;
     height: 150px;
     width: 150px;
@@ -50,7 +50,7 @@ h1 {
     margin: 10px
 }
 
-.box-3 {
+.box:nth-child(3) {
     text-align: center;
     height: 150px;
     width: 150px;
@@ -60,7 +60,7 @@ h1 {
     margin: 10px
 }
 
-.box-4 {
+.box:nth-child(4) {
     text-align: center;
     height: 150px;
     width: 150px;
@@ -70,7 +70,7 @@ h1 {
     margin: 10px
 }
 
-.box-5 {
+.box:nth-child(5) {
     text-align: center;
     height: 150px;
     width: 150px;
