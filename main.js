@@ -33,5 +33,6 @@ function generateRandomPalette() {
 //Change boxes to generated colors & change text below boxes to generated hex
 function displayPalette() {
     //display array in html
+        //code displayed by changing the innerText of the 
 };
 
