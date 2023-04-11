@@ -51,19 +51,18 @@ function displayPalette() {
         //update the innertext of p elments by theuir id num (use query selectro to make them vars)
     //color 1
     hexCode1.innerText = `${currentPalette[0]}`
-    box1.style.backgroundColor = currentPalette[0]
-    console.log(currentPalette[0])
+    // box1.style.backgroundColor = currentPalette[0]
     //color 2
     hexCode2.innerText = `${currentPalette[1]}`
-    box2.style.backgroundColor = currentPalette[1]
+    // box2.style.backgroundColor = currentPalette[1]
     //color 3
     hexCode3.innerText = `${currentPalette[2]}`
-    box3.style.backgroundColor = currentPalette[2]
+    // box3.style.backgroundColor = currentPalette[2]
     //color 4
     hexCode4.innerText = `${currentPalette[3]}`
-    box4.style.backgroundColor = currentPalette[3]
+    // box4.style.backgroundColor = currentPalette[3]
     //color 5
     hexCode5.innerText = `${currentPalette[4]}`
-    box5.style.backgroundColor = currentPalette[4]
+    // box5.style.backgroundColor = currentPalette[4]
 };
 
