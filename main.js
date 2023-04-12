@@ -1,10 +1,11 @@
 //Data Model
-var colorPalettes = [];
+var savedPalettes = [];
+var currentPalette = [];
 
 //Variables
 var generateRandomButton = document.querySelector('#generate-random-button');
 var boxes = document.querySelectorAll('.box');
-var hexColors = document.querySelectorAll('.box p');
+var hexColors = document.querySelectorAll('.item-wrapper p');
 
 //Event Listeners
 generateRandomButton.addEventListener('click', displayPalette);
@@ -31,47 +32,31 @@ function generateRandomHex(){
 };
 
 function generateRandomPalette() {
-    var colorPalette = [];
-      for (var i=0; colorPalette.length<5; i++){
-          colorPalette.push(generateRandomHex())
-      }
-      colorPalettes.push(colorPalette)
-      return colorPalette
+    if (!currentPalette.length) {
+        var colorPalette = [];
+        for (var i=0; colorPalette.length<5; i++){
+            colorPalette.push(generateRandomHex())
+        }
+        currentPalette = colorPalette;
+        return colorPalette;
+    } else {
+        for (var i = 0; i < 5; i++) {
+            var id = `unlock${i}`;
+            var unlockIcon = document.getElementById(id);    
+            var islocked = unlockIcon.classList.contains('hidden');
+            if (!islocked) {
+                var newHex = generateRandomHex()
+                currentPalette.splice(i, 1, newHex);
+            } 
+        }
+    }
   };
 
 function displayPalette() {
-    var colorPalette = generateRandomPalette();
+    generateRandomPalette();
     for (var i = 0; i < hexColors.length; i++) {
-        boxes[i].style.setProperty("background-color", colorPalette[i]);
-        hexColors[i].innerText = colorPalette[i];
+        boxes[i].style.setProperty("background-color", currentPalette[i]);
+        hexColors[i].innerText = currentPalette[i];
     }
 }
-
-/**
- * When the page is initially loaded, 
- * all colors should have an unlocked icon in the bottom right corner
- *  - CSS: make box a flex container, flex-end * 2; change p
- *  - HTML: make img unlocked and locked the children of box, with differnt class name
- * 
- * When a user clicks on the unlocked icon, a locked icon should appear; 
- * The locked/unlocked icons should toggle back and forth as the user clicks them
- *  - HTML + CSS: add class hidden
- *  - add event listener, classList.toggle("hidden") 
- * 
- * When the New Palette button is clicked, 
- * only the unlocked colors should change; Locked colors should remain
- * - modify genearteRandom
- *  - add if/else statement there
- *
- *  - if/else statement, 
-    *  - if unlocked (if event.target.classList.contains("unlocked"))
-    *   - provide ids of the unlocked items
-    *   - call generateRandomPalette
-    *   
- * 
- * When the palette is updated, your Data Model should be updated too 
-    *  -  modify function displayPalette
-    *   - only reassign values to the ones with unlocked item
- * 
- * */
 
