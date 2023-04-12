@@ -4,13 +4,16 @@ var currentPalette = [];
 
 //Variables
 var generateRandomButton = document.querySelector('#generate-random-button');
+var savePaletteButton = document.querySelector('#save-palette-button');
 var boxes = document.querySelectorAll('.box');
 var hexColors = document.querySelectorAll('.item-wrapper p');
+var savedPalettes = document.querySelector('.saved-palettes');
 
 //Event Listeners
 generateRandomButton.addEventListener('click', displayPalette);
 window.addEventListener('load', displayPalette);
 boxes.forEach(node => node.addEventListener('click', toggleLock));
+savePaletteButton.addEventListener('click', displaySavedPalettes);
 
 //Functions
 function toggleLock(event) {
@@ -60,3 +63,22 @@ function displayPalette() {
     }
 }
 
+// Pseudocode for save palettes functionality
+
+// steps:
+   // create a `Save Palette` button (HTML), matching the style of the `New Palette` button(CSS)
+       // We can give it the same class as the `New Palette` button for styling
+   // create a new section in the HTML to display the saved palettes on the right hand side of the page
+       // if there are no saved palettes, display should say “No saved palettes yet!”
+       // style the saved palettes section to match the comp
+   // create a new variable that is equal to an empty array(data model) for the saved palettes
+   // query select necessary elements from HTML
+   // add an event listener to the `Save Palette` button
+   // add a function displaySavedPalettes
+       // save(push) the current color palette to the data model
+       // adds the saved palettes to the DOM (innerHTML)
+       // hides the message “No saved palettes yet!”
+
+function displaySavedPalettes() {
+    savedPalettes.classList.remove('hidden');
+ }; 
