@@ -1,15 +1,14 @@
-p {
-    font-family: Poppins;
-    font-weight: 300;
-}
-
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     background-color: #E7F1F1;
-    height: 100%;
+    height: 80vh;
     width: 100%;
 }
 
-header, section {
+section {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +18,11 @@ h1 {
     font-family: Poppins;
     font-size: 90px;
     text-transform: uppercase;
-    padding: 50px
+}
+
+p {
+    font-family: Poppins;
+    font-weight: 300;
 }
 
 .unlock-icon,
@@ -57,6 +60,7 @@ button {
     font-weight: 300;
     border-top-right-radius: 45px;
     border-bottom-left-radius: 45px;
+    margin-top: 30px;
     width: 275px
 }
 
@@ -64,9 +68,3 @@ button {
     display: none;
 }
 
-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 100px
-}
