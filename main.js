@@ -7,7 +7,8 @@ var generateRandomButton = document.querySelector('#generate-random-button');
 var savePaletteButton = document.querySelector('#save-palette-button');
 var boxes = document.querySelectorAll('.box');
 var hexColors = document.querySelectorAll('.item-wrapper p');
-var savedPalettes = document.querySelector('.saved-palettes');
+var savedPalettesSection = document.querySelector('.saved-palettes');
+var savedDescription = document.querySelector('.saved-descriptor');
 
 //Event Listeners
 generateRandomButton.addEventListener('click', displayPalette);
@@ -80,5 +81,16 @@ function displayPalette() {
        // hides the message “No saved palettes yet!”
 
 function displaySavedPalettes() {
-    savedPalettes.classList.remove('hidden');
+    savedPalettesSection.classList.remove('hidden');
+    if (!savedPalettes === []) {
+        savedDescription.classList.add('hidden');
+    }
+    savePalette();
  }; 
+
+function savePalette() {
+    if (!savedPalettes.includes(currentPalette)) {
+            savedPalettes.push(currentPalette);
+            console.log(savedPalettes);
+    }
+};
