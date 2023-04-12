@@ -7,14 +7,14 @@ var generateRandomButton = document.querySelector('#generate-random-button');
 var savePaletteButton = document.querySelector('#save-palette-button');
 var boxes = document.querySelectorAll('.box');
 var hexColors = document.querySelectorAll('.item-wrapper p');
-var savedPalettesSection = document.querySelector('.saved-palettes');
-var savedDescription = document.querySelector('.saved-descriptor');
+var savedPalettesSection = document.querySelector('.saved-palettes-section');
+var savedDescription = document.querySelector('.saved-palettes');
 
 //Event Listeners
 generateRandomButton.addEventListener('click', displayPalette);
 window.addEventListener('load', displayPalette);
 boxes.forEach(node => node.addEventListener('click', toggleLock));
-savePaletteButton.addEventListener('click', displaySavedPalettes);
+savePaletteButton.addEventListener('click', displaySaved);
 
 //Functions
 function toggleLock(event) {
@@ -64,22 +64,6 @@ function displayPalette() {
     }
 }
 
-// Pseudocode for save palettes functionality
-
-// steps:
-   // create a `Save Palette` button (HTML), matching the style of the `New Palette` button(CSS)
-       // We can give it the same class as the `New Palette` button for styling
-   // create a new section in the HTML to display the saved palettes on the right hand side of the page
-       // if there are no saved palettes, display should say “No saved palettes yet!”
-       // style the saved palettes section to match the comp
-   // create a new variable that is equal to an empty array(data model) for the saved palettes
-   // query select necessary elements from HTML
-   // add an event listener to the `Save Palette` button
-   // add a function displaySavedPalettes
-       // save(push) the current color palette to the data model
-       // adds the saved palettes to the DOM (innerHTML)
-       // hides the message “No saved palettes yet!”
-
 function displaySavedPalettes() {
     savedPalettesSection.classList.remove('hidden');
     if (!savedPalettes === []) {
@@ -87,6 +71,28 @@ function displaySavedPalettes() {
     }
     savePalette();
  }; 
+
+ function displaySaved() {
+    savedColors.innerHTML = '';
+    if (savedPalettes === []){
+      savedColors.innerHTML = `<p class="saved-descriptor">No saved palettes yet!</p>`
+    } else {
+      for (var i=0; i<savedPalettes.length; i++){
+        savedColors.innerHTML += `<section class="color-palettes">
+                <article class="box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
+                      </article>
+                <article class="box", style="background-color: ${savedPalettes[i][1]}", id="colored-box-2">
+                      </article>
+                <article class="box", style="background-color: ${savedPalettes[i][2]}", id="colored-box-3">
+                      </article>
+                <article class="box", style="background-color: ${savedPalettes[i][3]}", id="colored-box-4">
+                      </article>
+                <article class="box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
+                      </article>
+              </section>`
+        }
+    }
+ };
 
 function savePalette() {
     if (!savedPalettes.includes(currentPalette)) {
