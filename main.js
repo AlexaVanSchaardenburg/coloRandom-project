@@ -9,15 +9,20 @@ var boxes = document.querySelectorAll('.box');
 var hexColors = document.querySelectorAll('.item-wrapper p');
 var savedPalettesSection = document.querySelector('.saved-palettes-section');
 var savedColors = document.querySelector('.saved-palettes');
+var deleteButton = document.querySelector('delete-button')
+var colorPalettes = document.querySelector('.color-palettes')
 
 //Event Listeners
 generateRandomButton.addEventListener('click', displayPalette);
 window.addEventListener('load', displayPalette);
 boxes.forEach(node => node.addEventListener('click', toggleLock));
 savePaletteButton.addEventListener('click', savePalette);
-// savedPalettesSection.addEventListener('click', deleteSaved()) {
-//     if (event.target.className = (.deleteButton))
-// }
+
+colorPalettes.addEventListener('click', function(e) {
+    if (e.target.classList.contains('delete-button')) {
+        console.log("fuck)")
+    }
+});
 
 
 //Functions
@@ -95,7 +100,3 @@ function savePalette() {
     savedPalettes.push(paletteToPush);
     displaySaved();
 };
-
-function deleteSaved() {
-
-}
