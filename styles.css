@@ -91,6 +91,12 @@ h2 {
     border: 3px solid;
     height: 100vh;
  }
+
+.small-box {
+    height: 50px;
+    width: 50px;
+}
+
 .hidden {
     display: none;
 }
