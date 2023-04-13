@@ -95,6 +95,11 @@ h2 {
 .small-box {
     height: 50px;
     width: 50px;
+    margin: 20px 3px;
+}
+
+.delete-button{
+    margin-left: 30px
 }
 
 .hidden {

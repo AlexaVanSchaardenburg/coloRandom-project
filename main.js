@@ -78,6 +78,7 @@ function displaySaved() {
                       </article>
                 <article class="box small-box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
                       </article>
+                <img src="./assets/delete.png" class="small-box delete-button">
               </section>`
         }
  };
