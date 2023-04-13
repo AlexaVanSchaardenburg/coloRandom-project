@@ -8,13 +8,13 @@ var savePaletteButton = document.querySelector('#save-palette-button');
 var boxes = document.querySelectorAll('.box');
 var hexColors = document.querySelectorAll('.item-wrapper p');
 var savedPalettesSection = document.querySelector('.saved-palettes-section');
-var savedDescription = document.querySelector('.saved-palettes');
+var savedColors = document.querySelector('.saved-palettes');
 
 //Event Listeners
 generateRandomButton.addEventListener('click', displayPalette);
 window.addEventListener('load', displayPalette);
 boxes.forEach(node => node.addEventListener('click', toggleLock));
-savePaletteButton.addEventListener('click', displaySaved);
+savePaletteButton.addEventListener('click', savePalette);
 
 //Functions
 function toggleLock(event) {
@@ -27,7 +27,7 @@ function toggleLock(event) {
 function generateRandomHex(){
     var hexCharacters = [];
     for (var i=0; hexCharacters.length<6; i++){
-      var characters = ['A', 'B', 'C', 'D', 'E', 'F',1,2,3,4,5,6,7,8,9]
+      var characters = ['A','B','C','D','E','F',1,2,3,4,5,6,7,8,9]
       indexNum = Math.floor(Math.random() *14)
       hexCharacters.push(characters[indexNum])
     }
@@ -38,7 +38,7 @@ function generateRandomHex(){
 function generateRandomPalette() {
     if (!currentPalette.length) {
         var colorPalette = [];
-        for (var i=0; colorPalette.length<5; i++){
+        for (var i=1; colorPalette.length<5; i++){
             colorPalette.push(generateRandomHex())
         }
         currentPalette = colorPalette;
@@ -64,19 +64,28 @@ function displayPalette() {
     }
 }
 
-function displaySavedPalettes() {
-    savedPalettesSection.classList.remove('hidden');
-    if (!savedPalettes === []) {
-        savedDescription.classList.add('hidden');
-    }
-    savePalette();
- }; 
+//  function displaySaved() {
+//     savedColors.innerHTML = '';
+//     console.log(savedPalettes)
+//       for (var i=0; i<savedPalettes.length; i++){
+//         savedColors.innerHTML += `<section class="color-palettes">
+//                 <article class="box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
+//                       </article>
+//                 <article class="box", style="background-color: ${savedPalettes[i][1]}", id="colored-box-2">
+//                       </article>
+//                 <article class="box", style="background-color: ${savedPalettes[i][2]}", id="colored-box-3">
+//                       </article>
+//                 <article class="box", style="background-color: ${savedPalettes[i][3]}", id="colored-box-4">
+//                       </article>
+//                 <article class="box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
+//                       </article>
+//               </section>`
+//         }
+//  };
 
- function displaySaved() {
+function displaySaved() {
     savedColors.innerHTML = '';
-    if (savedPalettes === []){
-      savedColors.innerHTML = `<p class="saved-descriptor">No saved palettes yet!</p>`
-    } else {
+    // console.log(savedPalettes)
       for (var i=0; i<savedPalettes.length; i++){
         savedColors.innerHTML += `<section class="color-palettes">
                 <article class="box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
@@ -91,12 +100,35 @@ function displaySavedPalettes() {
                       </article>
               </section>`
         }
-    }
  };
 
+// function displaySaved() {
+//     savedPalettes;
+//     savedColors.innerHTML = ''
+//     console.log(savedPalettes)
+//     for (var i = 0; i < 5; i++) {
+//         savedColors.innerHTML += `<article class="saved-box", style="background-color: ${savedPalettes[i]}"></article>`
+//     }
+// }
+//savedPalettes[i] === [hexcode1, hexcode2, ...]
+
+// function savePalette() {
+//     var paletteToPush = []
+//     for (var i=0; i<currentPalette.length; i++){
+//         paletteToPush.push(currentPalette[i])
+//     }
+//     if (!savedPalettes.includes(paletteToPush)) {
+//         savedPalettes.push(paletteToPush);
+//     }
+//     displaySaved()
+// };
+
 function savePalette() {
-    if (!savedPalettes.includes(currentPalette)) {
-            savedPalettes.push(currentPalette);
-            console.log(savedPalettes);
+    var paletteToPush = []
+    for (var i=0; i<currentPalette.length; i++){
+        paletteToPush.push(currentPalette[i])
     }
+    savedPalettes.push(paletteToPush);
+    displaySaved()
 };
+
