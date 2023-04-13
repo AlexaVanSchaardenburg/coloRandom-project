@@ -18,11 +18,22 @@ window.addEventListener('load', displayPalette);
 boxes.forEach(node => node.addEventListener('click', toggleLock));
 savePaletteButton.addEventListener('click', savePalette);
 
-colorPalettes.addEventListener('click', function(e) {
+savedPalettesSection.addEventListener('click', function(e) {
     if (e.target.classList.contains('delete-button')) {
-        console.log("fuck)")
+        deleteSaved(e)
     }
-});
+    });
+
+//     function deleteSaved() {
+//     var selectedColor = e.target.closest('section')
+
+//     for (var i =0; i < savedPalettes.length; i++) {
+//         if (savedPalettes.id == selectedColor.id) {
+//             savedPalettes[i].splice(id, 1)
+//         }
+//     }
+//     displaySaved();
+// }
 
 
 //Functions
