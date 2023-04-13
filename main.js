@@ -110,10 +110,13 @@ function displaySaved() {
 };
 
 function savePalette() {
-    var paletteToPush = [];
-    for (var i = 0; i < currentPalette.length; i++) {
-        paletteToPush.push(currentPalette[i]);
+    // make a shallow copy
+    var paletteToPush = currentPalette.slice();
+
+    // check if any duplicates
+    if (!savedPalettes.some(element => element.toString() === currentPalette.toString())) {
+        savedPalettes.push(paletteToPush);
     }
-    savedPalettes.push(paletteToPush);
+
     displaySaved();
 };
