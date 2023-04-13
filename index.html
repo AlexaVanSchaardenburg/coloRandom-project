@@ -8,45 +8,59 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;800&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>ColoRandom</h1>
-        <section class="color-palettes">
-            <div class="item-wrapper">
-                <article class="box", style="background-color: #EA9999", id="colored-box-1">
-                    <img id="unlock0" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
-                    <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
-                </article>
-                <p id="color-1">#EA9999</p>
-            </div>
-            <div class="item-wrapper">
-                <article class="box", style="background: #FACB9C" , id="colored-box-2">
-                    <img id="unlock1" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
-                    <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
-                </article>
-                <p id="color-2">#FACB9C</p>
-            </div>
-            <div class="item-wrapper">
-                <article class="box", style="background: #FFE59A" , id="colored-box-3">
-                    <img id="unlock2" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
-                    <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
-                </article>
-                <p id="color-3">#FFE59A</p>
-            </div>
-            <div class="item-wrapper">
-                <article class="box", style="background: #B6D7A8" , id="colored-box-4">
-                    <img id="unlock3" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
-                    <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
-                </article>
-                <p id="color-4">#B6D7A8</p>
-            </div>
-            <div class="item-wrapper">
-                <article class="box", style="background: #A4C4CA" , id="colored-box-5">
-                    <img id="unlock4" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
-                    <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
-                </article>
-                <p id="color-5">#A4C4CA</p>
-            </div>
+        <section class="color-generator">
+            <h1>ColoRandom</h1>
+            <section class="color-palettes">
+                <div class="item-wrapper">
+                    <article class="box", style="background-color: #EA9999", id="colored-box-1">
+                        <img id="unlock0" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
+                        <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
+                    </article>
+                    <p id="color-1">#EA9999</p>
+                </div>
+                <div class="item-wrapper">
+                    <article class="box", style="background: #FACB9C" , id="colored-box-2">
+                        <img id="unlock1" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
+                        <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
+                    </article>
+                    <p id="color-2">#FACB9C</p>
+                </div>
+                <div class="item-wrapper">
+                    <article class="box", style="background: #FFE59A" , id="colored-box-3">
+                        <img id="unlock2" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
+                        <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
+                    </article>
+                    <p id="color-3">#FFE59A</p>
+                </div>
+                <div class="item-wrapper">
+                    <article class="box", style="background: #B6D7A8" , id="colored-box-4">
+                        <img id="unlock3" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
+                        <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
+                    </article>
+                    <p id="color-4">#B6D7A8</p>
+                </div>
+                <div class="item-wrapper">
+                    <article class="box", style="background: #A4C4CA" , id="colored-box-5">
+                        <img id="unlock4" src="./assets/unlocked.png" class="unlock-icon" alt="unlocked icon">
+                        <img src="./assets/locked.png" class="lock-icon hidden" alt="locked icon">
+                    </article>
+                    <p id="color-5">#A4C4CA</p>
+                </div>
+            </section>
+            <footer>
+                <button id="generate-random-button"> New Palette</button>
+                <button id="save-palette-button"> Save Palette</button>
+            </footer>
         </section>
-        <button id="generate-random-button"> New Palette</button>
+        <div class="divider"></div>
+        <section class="saved-palettes-section">
+            <div class="saved-header">
+                <h2>Saved Palettes</h2>    
+            </div>  
+            <div class="saved-palettes">
+                <p class="saved-descriptor">No saved palettes yet!</p>
+            </div>
+            </section>
         <script type="text/javascript" src="main.js"></script>
     </body>
 </html>
