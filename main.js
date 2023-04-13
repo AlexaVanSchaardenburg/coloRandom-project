@@ -18,38 +18,44 @@ window.addEventListener('load', displayPalette);
 boxes.forEach(node => node.addEventListener('click', toggleLock));
 savePaletteButton.addEventListener('click', savePalette);
 
-savedPalettesSection.addEventListener('click', function(e) {
-    if (e.target.classList.contains('delete-button')) {
-        deleteSaved(e)
+savedPalettesSection.addEventListener('click', function (e) {
+    (console.log(e.target.id))
+    if (e.target.classList.contains("delete-button")) {
+        for (var i = 0; i < savedPalettes.length; i++) {
+            var test = ''
+            var index = -1
+            // console.log(i)
+            for (var j = 0; j < savedPalettes[i].length; j++) {
+                // console.log(savedPalettes[i][j])
+                test = test.concat(savedPalettes[i][j] + ',')
+            }
+            if (test.includes(e.target.id)) {
+                index = i
+                console.log(i)
+            }
+            if (index !== -1) {
+                // console.log(savedPalettes[i])
+                savedPalettes.splice(index, 1)
+            }
+        }
     }
-    });
-
-//     function deleteSaved() {
-//     var selectedColor = e.target.closest('section')
-
-//     for (var i =0; i < savedPalettes.length; i++) {
-//         if (savedPalettes.id == selectedColor.id) {
-//             savedPalettes[i].splice(id, 1)
-//         }
-//     }
-//     displaySaved();
-// }
-
+    displaySaved();
+});
 
 //Functions
 function toggleLock(event) {
     if (event.target.nodeName === 'IMG') {
-      event.currentTarget.firstElementChild.classList.toggle('hidden');
-      event.currentTarget.lastElementChild.classList.toggle('hidden');
+        event.currentTarget.firstElementChild.classList.toggle('hidden');
+        event.currentTarget.lastElementChild.classList.toggle('hidden');
     }
 };
 
-function generateRandomHex(){
+function generateRandomHex() {
     var hexCharacters = [];
-    for (var i=0; hexCharacters.length<6; i++){
-      var characters = ['A','B','C','D','E','F',1,2,3,4,5,6,7,8,9];
-      indexNum = Math.floor(Math.random() *14);
-      hexCharacters.push(characters[indexNum]);
+    for (var i = 0; hexCharacters.length < 6; i++) {
+        var characters = ['A', 'B', 'C', 'D', 'E', 'F', 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        indexNum = Math.floor(Math.random() * 14);
+        hexCharacters.push(characters[indexNum]);
     }
     hexCode = `#${hexCharacters.join('')}`;
     return hexCode;
@@ -58,7 +64,7 @@ function generateRandomHex(){
 function generateRandomPalette() {
     if (!currentPalette.length) {
         var colorPalette = [];
-        for (var i=1; colorPalette.length<5; i++){
+        for (var i = 1; colorPalette.length < 5; i++) {
             colorPalette.push(generateRandomHex());
         }
         currentPalette = colorPalette;
@@ -66,15 +72,15 @@ function generateRandomPalette() {
     } else {
         for (var i = 0; i < 5; i++) {
             var id = `unlock${i}`;
-            var unlockIcon = document.getElementById(id);    
+            var unlockIcon = document.getElementById(id);
             var islocked = unlockIcon.classList.contains('hidden');
             if (!islocked) {
                 var newHex = generateRandomHex();
                 currentPalette.splice(i, 1, newHex);
-            } 
+            }
         }
     }
-  };
+};
 
 function displayPalette() {
     generateRandomPalette();
@@ -86,7 +92,7 @@ function displayPalette() {
 
 function displaySaved() {
     savedColors.innerHTML = '';
-      for (var i=0; i<savedPalettes.length; i++){
+    for (var i = 0; i < savedPalettes.length; i++) {
         savedColors.innerHTML += `<section class="color-palettes">
                 <article class="box small-box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
                       </article>
@@ -98,14 +104,14 @@ function displaySaved() {
                       </article>
                 <article class="box small-box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
                       </article>
-                <img src="./assets/delete.png" class="small-box delete-button">
+                <img src="./assets/delete.png" class="small-box delete-button" id = ${savedPalettes[i]}>
               </section>`
-        }
- };
+    }
+};
 
 function savePalette() {
     var paletteToPush = [];
-    for (var i=0; i<currentPalette.length; i++){
+    for (var i = 0; i < currentPalette.length; i++) {
         paletteToPush.push(currentPalette[i]);
     }
     savedPalettes.push(paletteToPush);
