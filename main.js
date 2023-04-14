@@ -31,11 +31,17 @@ savedPalettesSection.addEventListener('click', function (e) {
 savedPalettesSection.addEventListener('click', function(e) {
     if (e.target.classList.contains('small-box')) {
         var deleteButtonId = e.target.parentElement.lastElementChild.id;
+        console.log(deleteButtonId)
         var index = findIndex(deleteButtonId, savedPalettes);
 
+        //bug caused by some issue in how index is defined using the findIndex function - I think it has something to do with using the thedeleteButtonId
+        //bug happening because the code is trying to display the savedPalette everytime any area of that conatiner is clikced INCLUDING the X button - but when the x button is clicked the savedPalette is also deleted which causes the index in the dispaly the saved Palette funciton to return undefined becasue it doesn't exisit
+        //need to put the boxes that have the colors in them in their own div and target that div (creates one more level to bubble up from)
+
         var paletteHolder = [];
-        for (var i = 0; i < 5; i++) {
+        for (var i=0; i<5; i++) {
             paletteHolder[i] = savedPalettes[index][i];
+            console.log()
         }
         currentPalette = paletteHolder;
 
@@ -43,6 +49,23 @@ savedPalettesSection.addEventListener('click', function(e) {
         displayPalette();
     }
 })
+
+// savedPalettesSection.addEventListener('click', function(e) {
+//     if (e.target.classList.contains('small-box')) {
+//         // var deleteButtonId = e.target.parentElement.lastElementChild.id;
+//         var index = findIndex(e.target.id, savedPalettes);
+
+//         var paletteHolder = [];
+//         for (var i=0; i<5; i++) {
+//             paletteHolder[i] = savedPalettes[index][i];
+//             console.log()
+//         }
+//         currentPalette = paletteHolder;
+
+//         resetToUnlock(boxes);
+//         displayPalette();
+//     }
+// });
 
 //Functions
 function findIndex(str, arr) {
