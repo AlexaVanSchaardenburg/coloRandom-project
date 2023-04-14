@@ -9,25 +9,17 @@ var boxes = document.querySelectorAll('.box');
 var hexColors = document.querySelectorAll('.item-wrapper p');
 var savedPalettesSection = document.querySelector('.saved-palettes-section');
 var savedColors = document.querySelector('.saved-palettes');
-var deleteButton = document.querySelector('delete-button')
-var colorPalettes = document.querySelector('.color-palettes')
 
 //Event Listeners
-generateRandomButton.addEventListener('click', displayPalette);
-window.addEventListener('load', displayPalette);
+generateRandomButton.addEventListener('click', displayRandomPalette);
+window.addEventListener('load', displayRandomPalette);
 boxes.forEach(node => node.addEventListener('click', toggleLock));
 savePaletteButton.addEventListener('click', savePalette);
 
 savedPalettesSection.addEventListener('click', function (e) {
     if (e.target.classList.contains("delete-button")) {
         for (var i = 0; i < savedPalettes.length; i++) {
-            var miniPalette = savedPalettes[i].toString();
-            var index = -1;
-
-            if (miniPalette.includes(e.target.id)) {
-                index = i;
-            }
-            
+            var index = findIndex(e.target.id, savedPalettes);
             if (index !== -1) {
                 savedPalettes.splice(index, 1);
             }
@@ -38,9 +30,7 @@ savedPalettesSection.addEventListener('click', function (e) {
 
 savedPalettesSection.addEventListener('click', function(e) {
     if (e.target.classList.contains('small-box')) {
-      
         var deleteButtonId = e.target.parentElement.lastElementChild.id;
-
         var index = findIndex(deleteButtonId, savedPalettes);
 
         var paletteHolder = [];
@@ -49,13 +39,12 @@ savedPalettesSection.addEventListener('click', function(e) {
         }
         currentPalette = paletteHolder;
 
-        for (var i = 0; i < 5; i++) {
-            boxes[i].style.setProperty("background-color", currentPalette[i]);
-            hexColors[i].innerText = currentPalette[i];
-        }
+        resetToUnlock(boxes);
+        displayPalette();
     }
 })
 
+//Functions
 function findIndex(str, arr) {
     for (var i = 0; i < arr.length; i++) {
         if (arr[i].toString() === str) {
@@ -65,7 +54,13 @@ function findIndex(str, arr) {
     return -1;
 }
 
-//Functions
+function resetToUnlock(boxes) {
+    boxes.forEach(element => {
+        element.firstElementChild.classList.remove('hidden');
+        element.lastElementChild.classList.add('hidden');
+    })
+}
+
 function toggleLock(event) {
     if (event.target.nodeName === 'IMG') {
         event.currentTarget.firstElementChild.classList.toggle('hidden');
@@ -91,7 +86,6 @@ function generateRandomPalette() {
             colorPalette.push(generateRandomHex());
         }
         currentPalette = colorPalette;
-        return colorPalette;
     } else {
         for (var i = 0; i < 5; i++) {
             var id = `unlock${i}`;
@@ -105,16 +99,21 @@ function generateRandomPalette() {
     }
 };
 
-function displayPalette() {
+function displayRandomPalette() {
     generateRandomPalette();
-    for (var i = 0; i < hexColors.length; i++) {
+    displayPalette();
+};
+
+function displayPalette() {
+    for (var i = 0; i < 5; i++) {
         boxes[i].style.setProperty("background-color", currentPalette[i]);
         hexColors[i].innerText = currentPalette[i];
     }
-};
+}
 
 function displaySaved() {
     savedColors.innerHTML = '';
+
     for (var i = 0; i < savedPalettes.length; i++) {
         savedColors.innerHTML += `<section class="color-palettes">
                 <article class="box small-box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
@@ -133,10 +132,8 @@ function displaySaved() {
 };
 
 function savePalette() {
-    // make a shallow copy
     var paletteToPush = currentPalette.slice();
 
-    // check if any duplicates
     if (!savedPalettes.some(element => element.toString() === currentPalette.toString())) {
         savedPalettes.push(paletteToPush);
     }
