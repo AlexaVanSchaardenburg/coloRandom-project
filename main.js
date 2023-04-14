@@ -19,23 +19,17 @@ boxes.forEach(node => node.addEventListener('click', toggleLock));
 savePaletteButton.addEventListener('click', savePalette);
 
 savedPalettesSection.addEventListener('click', function (e) {
-    (console.log(e.target.id))
     if (e.target.classList.contains("delete-button")) {
         for (var i = 0; i < savedPalettes.length; i++) {
-            var test = ''
-            var index = -1
-            // console.log(i)
-            for (var j = 0; j < savedPalettes[i].length; j++) {
-                // console.log(savedPalettes[i][j])
-                test = test.concat(savedPalettes[i][j] + ',')
+            var miniPalette = savedPalettes[i].toString();
+            var index = -1;
+
+            if (miniPalette.includes(e.target.id)) {
+                index = i;
             }
-            if (test.includes(e.target.id)) {
-                index = i
-                console.log(i)
-            }
+            
             if (index !== -1) {
-                // console.log(savedPalettes[i])
-                savedPalettes.splice(index, 1)
+                savedPalettes.splice(index, 1);
             }
         }
     }
@@ -110,10 +104,13 @@ function displaySaved() {
 };
 
 function savePalette() {
-    var paletteToPush = [];
-    for (var i = 0; i < currentPalette.length; i++) {
-        paletteToPush.push(currentPalette[i]);
+    // make a shallow copy
+    var paletteToPush = currentPalette.slice();
+
+    // check if any duplicates
+    if (!savedPalettes.some(element => element.toString() === currentPalette.toString())) {
+        savedPalettes.push(paletteToPush);
     }
-    savedPalettes.push(paletteToPush);
+
     displaySaved();
 };
