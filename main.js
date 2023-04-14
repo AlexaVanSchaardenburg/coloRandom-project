@@ -25,14 +25,9 @@ savedPalettesSection.addEventListener('click', function (e) {
             }
         }
     }
-    displaySaved();
-});
-
-savedPalettesSection.addEventListener('click', function(e) {
     if (e.target.classList.contains('small-box')) {
         var deleteButtonId = e.target.parentElement.lastElementChild.id;
         var index = findIndex(deleteButtonId, savedPalettes);
-
         var paletteHolder = [];
         for (var i = 0; i < 5; i++) {
             paletteHolder[i] = savedPalettes[index][i];
@@ -42,7 +37,8 @@ savedPalettesSection.addEventListener('click', function(e) {
         resetToUnlock(boxes);
         displayPalette();
     }
-})
+    displaySaved();
+});
 
 //Functions
 function findIndex(str, arr) {
