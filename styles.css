@@ -3,6 +3,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     background-color: #E7F1F1;
+    font-family: Poppins;
     height: 100vh;
     width: 100%;
     margin: 0px;
@@ -15,14 +16,12 @@ section {
 }
 
 h1 {
-    font-family: Poppins;
     font-size: 90px;
     text-transform: uppercase;
     margin-top: 0px;
 }
 
 p {
-    font-family: Poppins;
     font-weight: 300;
 }
 
@@ -47,9 +46,8 @@ p {
     text-align: center;
     height: 150px;
     width: 150px;
-    border-style: solid;
-    border-width: 3px;
-    margin: 10px
+    border: 4px solid;
+    margin: 10px;
 }
 
 button {
@@ -62,19 +60,16 @@ button {
     border-top-right-radius: 45px;
     border-bottom-left-radius: 45px;
     border: none;
-    margin-top: 80px;
-    margin-left: 56px;
-    margin-right: 56px;
-    width: 275px
+    margin: 80px 56px 0px 56px;
+    width: 275px;
 }
 
 h2 {
-    font-family: Poppins;
     font-size: 40px;
  }
 
  .saved-palettes-section {
-    width: 20vw;
+    width: 24vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -99,7 +94,7 @@ h2 {
 }
 
 .delete-button{
-    margin-left: 30px
+    margin-left: 30px;
 }
 
 .hidden {
