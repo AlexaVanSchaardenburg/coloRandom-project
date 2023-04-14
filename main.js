@@ -115,33 +115,20 @@ function displaySaved() {
     savedColors.innerHTML = '';
 
     for (var i = 0; i < savedPalettes.length; i++) {
-        var smallBoxes = '';
-        for (var j = 0; j < 5; j++) {
-            smallBoxes +=  `<article class="box small-box", style="background-color: ${savedPalettes[i][j]}", id="colored-box-1">
-            </article>`
-        }
         savedColors.innerHTML += `<section class="color-palettes">
-                                  ${smallBoxes}
-                                  <img src="./assets/delete.png" class="small-box delete-button" id = ${savedPalettes[i]}>
-                                  </section>`        
+                <article class="box small-box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
+                      </article>
+                <article class="box small-box", style="background-color: ${savedPalettes[i][1]}", id="colored-box-2">
+                      </article>
+                <article class="box small-box", style="background-color: ${savedPalettes[i][2]}", id="colored-box-3">
+                      </article>
+                <article class="box small-box", style="background-color: ${savedPalettes[i][3]}", id="colored-box-4">
+                      </article>
+                <article class="box small-box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
+                      </article>
+                <img src="./assets/delete.png" class="small-box delete-button" id = ${savedPalettes[i]}>
+              </section>`
     }
-
-   
-    // for (var i = 0; i < savedPalettes.length; i++) {
-    //     savedColors.innerHTML += `<section class="color-palettes">
-    //             <article class="box small-box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
-    //                   </article>
-    //             <article class="box small-box", style="background-color: ${savedPalettes[i][1]}", id="colored-box-2">
-    //                   </article>
-    //             <article class="box small-box", style="background-color: ${savedPalettes[i][2]}", id="colored-box-3">
-    //                   </article>
-    //             <article class="box small-box", style="background-color: ${savedPalettes[i][3]}", id="colored-box-4">
-    //                   </article>
-    //             <article class="box small-box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
-    //                   </article>
-    //             <img src="./assets/delete.png" class="small-box delete-button" id = ${savedPalettes[i]}>
-    //           </section>`
-    // }
 };
 
 function savePalette() {
