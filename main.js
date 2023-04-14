@@ -36,6 +36,35 @@ savedPalettesSection.addEventListener('click', function (e) {
     displaySaved();
 });
 
+savedPalettesSection.addEventListener('click', function(e) {
+    if (e.target.classList.contains('small-box')) {
+      
+        var deleteButtonId = e.target.parentElement.lastElementChild.id;
+
+        var index = findIndex(deleteButtonId, savedPalettes);
+
+        var paletteHolder = [];
+        for (var i = 0; i < 5; i++) {
+            paletteHolder[i] = savedPalettes[index][i];
+        }
+        currentPalette = paletteHolder;
+
+        for (var i = 0; i < 5; i++) {
+            boxes[i].style.setProperty("background-color", currentPalette[i]);
+            hexColors[i].innerText = currentPalette[i];
+        }
+    }
+})
+
+function findIndex(str, arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].toString() === str) {
+            return i;
+        } 
+    }
+    return -1;
+}
+
 //Functions
 function toggleLock(event) {
     if (event.target.nodeName === 'IMG') {
@@ -114,3 +143,4 @@ function savePalette() {
 
     displaySaved();
 };
+
