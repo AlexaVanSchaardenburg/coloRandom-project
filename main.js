@@ -18,12 +18,7 @@ savePaletteButton.addEventListener('click', savePalette);
 
 savedPalettesSection.addEventListener('click', function (e) {
     if (e.target.classList.contains("delete-button")) {
-        for (var i = 0; i < savedPalettes.length; i++) {
-            var index = findIndex(e.target.id, savedPalettes);
-            if (index !== -1) {
-                savedPalettes.splice(index, 1);
-            }
-        }
+        confirmDelete(e)
     }
     displaySaved();
 });
@@ -143,3 +138,19 @@ function savePalette() {
     displaySaved();
 };
 
+function confirmDelete(e) {
+        var answer = confirm("Do you really want to delete this palette?");
+        if (answer) {
+            deleteSavedPalette(e);
+    }
+};
+
+function deleteSavedPalette(e) {
+    for (var i = 0; i < savedPalettes.length; i++) {
+        var index = findIndex(e.target.id, savedPalettes);
+        if (index !== -1) {
+            savedPalettes.splice(index, 1);
+        }
+    }
+    displaySaved();
+};
