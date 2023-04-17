@@ -1,3 +1,4 @@
+/* General */
 body {
     display: flex;
     align-items: center;
@@ -9,20 +10,32 @@ body {
     margin: 0px;
 }
 
-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
+/* Text */
 h1 {
     font-size: 90px;
     text-transform: uppercase;
     margin-top: 0px;
 }
 
+h2 {
+    font-size: 40px;
+}
+
 p {
     font-weight: 300;
+}
+
+/* Main Palette */
+section,
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color-generator {
+    display: flex;
+    flex-direction: column;
 }
 
 .unlock-icon,
@@ -30,7 +43,8 @@ p {
     padding-bottom: 5px;
     height: 30px;
     width: 30px;
-} 
+    cursor: pointer;
+}
 
 .item-wrapper {
     display: flex;
@@ -62,41 +76,37 @@ button {
     border: none;
     margin: 80px 56px 0px 56px;
     width: 275px;
+    cursor: pointer;
 }
 
-h2 {
-    font-size: 40px;
- }
-
- .saved-palettes-section {
-    width: 24vw;
+/* Saved Section */
+.divider {
+    border: 3px solid;
     height: 100vh;
+}
+
+.saved-palettes-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
- }
-
- .color-generator {
-    display: flex;
-    flex-direction: column;
- }
-
- .divider {
-    border: 3px solid;
+    width: 24vw;
     height: 100vh;
- }
+}
 
 .small-box {
     height: 50px;
     width: 50px;
     margin: 20px 3px;
+    cursor: pointer;
 }
 
-.delete-button{
+.delete-button {
     margin-left: 30px;
+    cursor: pointer;
 }
 
+/* Other */
 .hidden {
     display: none;
 }
