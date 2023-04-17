@@ -40,6 +40,8 @@ savedPalettesSection.addEventListener('click', function (e) {
     displaySaved();
 });
 
+savedPalettesSection.addEventListener('click', confirmDelete);
+
 //Functions
 function findIndex(str, arr) {
     for (var i = 0; i < arr.length; i++) {
@@ -139,4 +141,24 @@ function savePalette() {
 
     displaySaved();
 };
+
+function confirmDelete(e) {
+    var answer = confirm("Do you really want to delete this palette?");
+    if (answer) {
+        deleteSavedPalette(e);
+    }
+}
+
+function deleteSavedPalette(e) {
+    if (e.target.classList.contains("delete-button")) {
+        for (var i = 0; i < savedPalettes.length; i++) {
+            var index = findIndex(e.target.id, savedPalettes);
+            if (index !== -1) {
+                savedPalettes.splice(index, 1);
+            }
+        }
+    }
+
+    displaySaved();
+}
 
