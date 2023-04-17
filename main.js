@@ -18,12 +18,7 @@ savePaletteButton.addEventListener('click', savePalette);
 
 savedPalettesSection.addEventListener('click', function (e) {
     if (e.target.classList.contains("delete-button")) {
-        for (var i = 0; i < savedPalettes.length; i++) {
-            var index = findIndex(e.target.id, savedPalettes);
-            if (index !== -1) {
-                savedPalettes.splice(index, 1);
-            }
-        }
+        confirmDelete(e)
     }
     displaySaved();
 });
@@ -32,9 +27,8 @@ savedPalettesSection.addEventListener('click', function(e) {
     if (e.target.classList.contains('small-box')) {
         var deleteButtonId = e.target.parentElement.lastElementChild.id;
         var index = findIndex(deleteButtonId, savedPalettes);
-
         var paletteHolder = [];
-        for (var i = 0; i < 5; i++) {
+        for (var i=0; i<5; i++) {
             paletteHolder[i] = savedPalettes[index][i];
         }
         currentPalette = paletteHolder;
@@ -117,19 +111,19 @@ function displaySaved() {
         savedColors.innerHTML = `No saved palettes yet!`
     } else {
         for (var i = 0; i < savedPalettes.length; i++) {
-            savedColors.innerHTML += `<section class="color-palettes">
-                    <div class="box small-box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
-                          </div>
-                    <div class="box small-box", style="background-color: ${savedPalettes[i][1]}", id="colored-box-2">
-                          </div>
-                    <div class="box small-box", style="background-color: ${savedPalettes[i][2]}", id="colored-box-3">
-                          </div>
-                    <div class="box small-box", style="background-color: ${savedPalettes[i][3]}", id="colored-box-4">
-                          </div>
-                    <div class="box small-box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
-                          </div>
-                    <img src="./assets/delete.png" class="small-box delete-button" id = ${savedPalettes[i]} alt="x shaped delete button">
-                  </section>`
+            savedColors.innerHTML += `<section class=color-palettes>
+                        <div class="box small-box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
+                            </div>
+                        <div class="box small-box", style="background-color: ${savedPalettes[i][1]}", id="colored-box-2">
+                            </div>
+                        <div class="box small-box", style="background-color: ${savedPalettes[i][2]}", id="colored-box-3">
+                            </div>
+                        <div class="box small-box", style="background-color: ${savedPalettes[i][3]}", id="colored-box-4">
+                            </div>
+                        <div class="box small-box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
+                            </div>
+                    <img src="./assets/delete.png" class="delete-button" id = ${savedPalettes[i]} alt="x shaped delete button">
+                </section>`
         }
     }
 };
@@ -144,3 +138,19 @@ function savePalette() {
     displaySaved();
 };
 
+function confirmDelete(e) {
+        var answer = confirm("Do you really want to delete this palette?");
+        if (answer) {
+            deleteSavedPalette(e);
+    }
+};
+
+function deleteSavedPalette(e) {
+    for (var i = 0; i < savedPalettes.length; i++) {
+        var index = findIndex(e.target.id, savedPalettes);
+        if (index !== -1) {
+            savedPalettes.splice(index, 1);
+        }
+    }
+    displaySaved();
+};
