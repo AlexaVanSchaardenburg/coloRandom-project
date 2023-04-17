@@ -30,6 +30,7 @@ p {
     padding-bottom: 5px;
     height: 30px;
     width: 30px;
+    cursor: pointer;
 } 
 
 .item-wrapper {
@@ -62,6 +63,7 @@ button {
     border: none;
     margin: 80px 56px 0px 56px;
     width: 275px;
+    cursor: pointer;
 }
 
 h2 {
@@ -69,12 +71,12 @@ h2 {
  }
 
  .saved-palettes-section {
-    width: 24vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: flex-start;
+     width: 24vw;
+     height: 100vh;
  }
 
  .color-generator {
@@ -91,10 +93,12 @@ h2 {
     height: 50px;
     width: 50px;
     margin: 20px 3px;
+    cursor: pointer;
 }
 
 .delete-button{
     margin-left: 30px;
+    cursor: pointer;
 }
 
 .hidden {
