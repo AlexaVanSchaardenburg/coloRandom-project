@@ -118,17 +118,17 @@ function displaySaved() {
     } else {
         for (var i = 0; i < savedPalettes.length; i++) {
             savedColors.innerHTML += `<section class="color-palettes">
-                    <article class="box small-box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
-                          </article>
-                    <article class="box small-box", style="background-color: ${savedPalettes[i][1]}", id="colored-box-2">
-                          </article>
-                    <article class="box small-box", style="background-color: ${savedPalettes[i][2]}", id="colored-box-3">
-                          </article>
-                    <article class="box small-box", style="background-color: ${savedPalettes[i][3]}", id="colored-box-4">
-                          </article>
-                    <article class="box small-box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
-                          </article>
-                    <img src="./assets/delete.png" class="small-box delete-button" id = ${savedPalettes[i]}>
+                    <div class="box small-box", style="background-color: ${savedPalettes[i][0]}", id="colored-box-1">
+                          </div>
+                    <div class="box small-box", style="background-color: ${savedPalettes[i][1]}", id="colored-box-2">
+                          </div>
+                    <div class="box small-box", style="background-color: ${savedPalettes[i][2]}", id="colored-box-3">
+                          </div>
+                    <div class="box small-box", style="background-color: ${savedPalettes[i][3]}", id="colored-box-4">
+                          </div>
+                    <div class="box small-box", style="background-color: ${savedPalettes[i][4]}", id="colored-box-5">
+                          </div>
+                    <img src="./assets/delete.png" class="small-box delete-button" id = ${savedPalettes[i]} alt="x shaped delete button">
                   </section>`
         }
     }
